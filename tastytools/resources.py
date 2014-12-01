@@ -1,3 +1,5 @@
+import json 
+
 from tastypie.resources import Resource as TastyResource
 from tastypie.resources import ModelResource as TastyModelResource
 from django.conf.urls import url
@@ -6,7 +8,6 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from tastytools import fields
 from test.resources import TestData
 from django.http import HttpResponse
-from django.utils import simplejson
 from tastypie import http
 from tastytools.authentication import AuthenticationByMethod
 from tastypie.authentication import Authentication
@@ -80,7 +81,7 @@ class ModelResource(TastyModelResource):
 
     def apply_authorization_limits(self, request, object_list):
         if request is not None and request.method in ['PUT', 'PATCH']:
-            json_data = simplejson.loads(request.raw_post_data)
+            json_data = json.loads(request.raw_post_data)
             for key in json_data.keys():
                 fld = self.fields.get(key, None)
                 if fld is not None and getattr(fld, "final", False):
