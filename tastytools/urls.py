@@ -1,5 +1,5 @@
-from django.conf.urls.defaults import patterns, include, url
-from views import doc, howto
+from django.conf.urls import patterns
+from tastytools.views import doc, howto
 
 urlpatterns = patterns('',
     (r'^doc', doc),
