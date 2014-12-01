@@ -1,6 +1,6 @@
 from tastypie.resources import Resource as TastyResource
 from tastypie.resources import ModelResource as TastyModelResource
-from django.conf.urls.defaults import url
+from django.conf.urls import url
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from django.core.files.uploadedfile import SimpleUploadedFile
 from tastytools import fields
